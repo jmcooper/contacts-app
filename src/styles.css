@@ -1,0 +1,133 @@
+:root {
+  --color-primary: #89a;
+  --color-primary-light: #abc;
+  --font-color-dark-bg: #fff;
+  --color-secondary: #aaa;
+  --color-secondary-light: #ccc;
+  --color-error: #B22222;
+  --color-disabled-error: #F88888;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  margin: 0;
+  color: #777;
+}
+
+input,
+textarea {
+  font-size: 24px;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  color: #555;
+}
+
+select {
+  font-size: 24px;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  color: #555;
+
+}
+
+::placeholder {
+  color: #aaa;
+}
+
+button {
+  position: relative;
+  font-size: 22px;
+  padding: 10px;
+  border: none;
+  color: var(--font-color-dark-bg);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.image {
+  display: flex;
+  border-radius: 15px;
+  align-items: center;
+  padding-right: 15px;
+}
+
+button.image img {
+  height: 24px;
+  margin-right: 5px;
+}
+
+button.primary {
+  position: relative;
+  background-color: var(--color-primary);
+  transition-duration: 0.4s;
+}
+
+button.secondary {
+  background-color: var(--color-secondary);
+}
+
+button:disabled {
+  background-color: var(--color-secondary);
+  color: var(--color-disabled-error);
+  cursor: not-allowed;
+}
+
+button:not([disabled])::after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 5px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+button:not([disabled]).image::after {
+  border-radius: 15px;
+}
+
+button:not([disabled]):active::after {
+  position: absolute;
+  border-radius: 5px;
+  left: 0;
+  top: 0;
+  opacity: 1;
+  transition: 0s;
+}
+
+button:not([disabled]).image:active::after {
+  border-radius: 15px;
+}
+
+button:not([disabled]).primary::after {
+  box-shadow: 0 0 10px 20px var(--color-primary-light);
+}
+
+button:not([disabled]).primary:active::after {
+  box-shadow: 0 0 0 0 var(--color-primary-light);
+}
+
+button:not([disabled]).secondary::after {
+  box-shadow: 0 0 10px 20px var(--color-secondary-light);
+
+}
+
+button:not([disabled]).secondary:active::after {
+  box-shadow: 0 0 0 0 var(--color-secondary-light);
+}
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
