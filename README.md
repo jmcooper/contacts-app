@@ -1,6 +1,6 @@
 # ContactsApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
+This is the Demo app for Pluralsight's Angular Reactive Forms course.
 
 ## Development server
 
