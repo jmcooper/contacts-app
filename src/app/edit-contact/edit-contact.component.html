@@ -2,52 +2,74 @@
   <h1 class="header">
     Edit Contact
   </h1>
-  <form>
+  <form [formGroup]="contactForm" (ngSubmit)="saveContact()">
     <section>
       <nav>Name/Info</nav>
       <div>
-        <input placeholder="First Name" />
-        <input placeholder="Last Name" />
-        <input placeholder="Date of Birth" />
-        <input placeholder="Favorites Ranking" />
+        <input formControlName="firstName" [class.error]="firstName.invalid && firstName.touched" placeholder="First Name" />
+        <em *ngIf="firstName.errors?.['required'] && firstName.touched">please Enter first name</em>
+        <em *ngIf="firstName.errors?.['minlength'] && firstName.touched">First Name is less than 3 letters </em>
+        <input formControlName="lastName" placeholder="Last Name" />
+        <input formControlName="dateOfBirth" type="date" 
+        [value]="contactForm.controls.dateOfBirth.value | date:'yyyy-MM-dd'" placeholder="Date of Birth" />
+        <div> 
+          <span>Favorites Ranking:</span>
+        <input formControlName="favoritesRanking" placeholder="Favorites Ranking" type="range" min="0" max="5" />
+        <span>{{contactForm.controls.favoritesRanking.value}}</span>
+      </div>
+        <div>
+          <input type="checkbox" formControlName="personal" > Personal
+        </div>
       </div>
     </section>
     <section>
+
       <nav>Phone</nav>
-      <div class="flex-column">
-        <div class="flex-group">
-          <input placeholder="Phone" />
-          <img src="/assets/plus-grey-blue.png" class="add" />
-        </div>
-        <div class="radio">
-          <input type="radio" value="mobile"> Mobile
-          <input type="radio" value="work"> Work
-          <input type="radio" value="other"> Other
-        </div>
+      <div>
+          <div formArrayName="phone" class="flex-column">
+            <div class="flex-group">
+              <input formControlName="phoneNumber" placeholder="Phone" />
+              <img src="/assets/plus-grey-blue.png" class="add" />
+            </div>
+            <div class="radio" >
+              <span *ngFor="let phoneType of phoneTypes">
+              <input type="radio" formControlName="phoneType" [value]="phoneType.value"> {{phoneType.title}}
+            </span>
+            </div>
+          </div>
       </div>
     </section>
     <section>
       <nav>Address</nav>
-      <div>
+      <div formGroupName="address" [class.error]="contactForm.controls.address.invalid && contactForm.controls.address.dirty">
         <div class="address">
           <div class="flex-group">
-            <input placeholder="Address" />
+            <input placeholder="Address" formControlName="streetAddress" />
             <img src="/assets/plus-grey-blue.png" class="add" />
           </div>
-          <input placeholder="City" />
-          <input placeholder="State/Region" />
-          <input placeholder="Zip/Postal Code" />
-          <select>
-            <option value="home">Home</option>
-            <option value="work">Work</option>
-            <option value="mobile">Other</option>
+          <input placeholder="City" formControlName="city"/>
+          <input placeholder="State/Region" formControlName="state" />
+          <input placeholder="Zip/Postal Code" formControlName="postalCode"/>
+          <select formControlName="addressType">
+           
+            <option *ngFor="let addressType of addressTypesValue" formControlName="addressType" [value]="addressType.value">
+              {{addressType.title}}
+            </option>
           </select>
         </div>
+        <em *ngIf="contactForm.controls.address.invalid && contactForm.controls.address.dirty">Incomplete Address</em>
       </div>
     </section>
-  </form>
+    <section>
+      <nav>Notes</nav>
+      <div>
+        <textarea placeholder="notes" rows="5" [class.error]="notes.invalid" formControlName="notes"></textarea>
+        <em *ngIf="notes.errors?.['restrictedWords']">Restricted words found {{notes.errors?.['restrictedWords']}}</em>
+      </div>
+    </section>
   <div class="buttons">
     <button class="secondary">Cancel</button>
-    <button class="primary" (click)="saveContact()">Save</button>
+    <button type="submit" class="primary" [disabled]="contactForm.invalid">Save</button>
   </div>
+</form>
 </div>
