@@ -2,52 +2,52 @@
   <h1 class="header">
     Edit Contact
   </h1>
-  <form>
+  <form [formGroup]="contactForm" (ngSubmit)="saveContact()">
     <section>
       <nav>Name/Info</nav>
       <div>
-        <input placeholder="First Name" />
-        <input placeholder="Last Name" />
-        <input placeholder="Date of Birth" />
-        <input placeholder="Favorites Ranking" />
+        <input formControlName="firstName" placeholder="First Name" />
+        <input formControlName="lastName" placeholder="Last Name" />
+        <input formControlName="dateOfBirth" placeholder="Date of Birth" />
+        <input formControlName="favoritesRanking" placeholder="Favorites Ranking" />
       </div>
     </section>
     <section>
       <nav>Phone</nav>
-      <div class="flex-column">
+      <div formGroupName="phone" class="flex-column">
         <div class="flex-group">
-          <input placeholder="Phone" />
+          <input formControlName="phoneNumber" placeholder="Phone" />
           <img src="/assets/plus-grey-blue.png" class="add" />
         </div>
         <div class="radio">
-          <input type="radio" value="mobile"> Mobile
-          <input type="radio" value="work"> Work
-          <input type="radio" value="other"> Other
+          <input type="radio" formControlName="phoneType" value="mobile"> Mobile
+          <input type="radio" formControlName="phoneType" value="work"> Work
+          <input type="radio" formControlName="phoneType" value="other"> Other
         </div>
       </div>
     </section>
     <section>
       <nav>Address</nav>
       <div>
-        <div class="address">
+        <div formGroupName="address" class="address">
           <div class="flex-group">
-            <input placeholder="Address" />
+            <input placeholder="Address" formControlName="streetAddress" />
             <img src="/assets/plus-grey-blue.png" class="add" />
           </div>
-          <input placeholder="City" />
-          <input placeholder="State/Region" />
-          <input placeholder="Zip/Postal Code" />
+          <input placeholder="City" formControlName="city"/>
+          <input placeholder="State/Region" formControlName="state"/>
+          <input placeholder="Zip/Postal Code" formControlName="postalCode"/>
           <select>
-            <option value="home">Home</option>
-            <option value="work">Work</option>
-            <option value="mobile">Other</option>
+            <option value="home" formControlName="addressType">Home</option>
+            <option value="work" formControlName="addressType">Work</option>
+            <option value="mobile" formControlName="addressType">Other</option>
           </select>
         </div>
       </div>
     </section>
+    <div class="buttons">
+      <button class="secondary">Cancel</button>
+      <button type="submit" class="primary" >Save</button>
+    </div>
   </form>
-  <div class="buttons">
-    <button class="secondary">Cancel</button>
-    <button class="primary" (click)="saveContact()">Save</button>
-  </div>
 </div>

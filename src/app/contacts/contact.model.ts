@@ -1,7 +1,7 @@
 export interface Contact {
   id: string,
-  firstName: string,
-  lastName: string,
+  firstName: string ,
+  lastName: string ,
   dateOfBirth: Date | null,
   favoritesRanking: number | null,
   phone: Phone,
