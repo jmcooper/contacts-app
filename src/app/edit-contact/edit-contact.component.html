@@ -1,0 +1,53 @@
+<div class="content">
+  <h1 class="header">
+    Edit Contact
+  </h1>
+  <form>
+    <section>
+      <nav>Name/Info</nav>
+      <div>
+        <input placeholder="First Name" />
+        <input placeholder="Last Name" />
+        <input placeholder="Date of Birth" />
+        <input placeholder="Favorites Ranking" />
+      </div>
+    </section>
+    <section>
+      <nav>Phone</nav>
+      <div class="flex-column">
+        <div class="flex-group">
+          <input placeholder="Phone" />
+          <img src="/assets/plus-grey-blue.png" class="add" />
+        </div>
+        <div class="radio">
+          <input type="radio" value="mobile"> Mobile
+          <input type="radio" value="work"> Work
+          <input type="radio" value="other"> Other
+        </div>
+      </div>
+    </section>
+    <section>
+      <nav>Address</nav>
+      <div>
+        <div class="address">
+          <div class="flex-group">
+            <input placeholder="Address" />
+            <img src="/assets/plus-grey-blue.png" class="add" />
+          </div>
+          <input placeholder="City" />
+          <input placeholder="State/Region" />
+          <input placeholder="Zip/Postal Code" />
+          <select>
+            <option value="home">Home</option>
+            <option value="work">Work</option>
+            <option value="mobile">Other</option>
+          </select>
+        </div>
+      </div>
+    </section>
+  </form>
+  <div class="buttons">
+    <button class="secondary">Cancel</button>
+    <button class="primary" (click)="saveContact()">Save</button>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+h1 {
+  background-color: var(--color-primary);
+  color: var(--font-color-dark-bg);
+  font-size: 28px;
+  padding: 5px 10px;
+  border-bottom: 1px solid #fff;
+  margin: 0;
+}
+
+h2 {
+  background-color: var(--color-primary);
+  color: var(--font-color-dark-bg);
+  padding: 5px;
+  font-size: 24px;
+  margin-bottom: 0;
+}
+
+table {
+  text-align: left;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+tr {
+  cursor: pointer;
+}
+
+tr:hover {
+  background-color: #eee;
+}
+
+th,
+td {
+  padding: 5px;
+  border: 1px solid #fff;
+}
+
+th:first-child,
+td:first-child {
+  border-left: none;
+}
+
+th:last-child,
+td:last-child {
+  border-right: none;
+}
+
+th {
+  background-color: var(--color-primary);
+  color: var(--font-color-dark-bg);
+}
+
+.center {
+  text-align: center;
+}
+
+button.add-contact {
+  margin-top: 10px;
+}

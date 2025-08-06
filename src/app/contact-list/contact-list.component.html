@@ -1,0 +1,64 @@
+<div>
+  <button class="primary image add-contact" routerLink="/contacts/edit">
+    <img src="/assets/plus-no-circle.png" class="button-image" />
+    Add Contact
+  </button>
+  <h2>
+    Favorite Contacts
+  </h2>
+  <table>
+    <thead>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Address</th>
+    </thead>
+    <tbody>
+      @for(contact of favoriteContacts; track contact.id) {
+      <tr [routerLink]="['/contacts/edit', contact.id]">
+        <td>{{contact.firstName}} {{contact.lastName}}</td>
+        <td>@if(contact.phone){<span>{{contact.phone.phoneNumber}}</span>}</td>
+        @if(contact.address) {
+        <td>
+          {{contact.address.streetAddress}}, {{contact.address.city}},
+          {{contact.address.state}},
+          {{contact.address.postalCode}}
+        </td>
+        }
+      </tr>
+      } @empty {
+      <tr>
+        <td class="center" colspan="3">You have no favorite contacts</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  <h2>
+    All Contacts
+  </h2>
+  <table>
+    <thead>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Address</th>
+    </thead>
+    <tbody>
+      @for(contact of contacts; track contact.id) {
+      <tr [routerLink]="['/contacts/edit', contact.id]">
+        <td>{{contact.firstName}} {{contact.lastName}}</td>
+        <td>@if(contact.phone){<span>{{contact.phone.phoneNumber}}</span>}</td>
+        @if(contact.address) {
+        <td>
+          {{contact.address.streetAddress}}, {{contact.address.city}},
+          {{contact.address.state}},
+          {{contact.address.postalCode}}
+        </td>
+        }
+      </tr>
+      } @empty {
+      <tr>
+        <td class="center" colspan="3">You have no contacts</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

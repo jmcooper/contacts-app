@@ -1,0 +1,126 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+}
+
+h1 {
+  background-color: var(--color-primary);
+  color: var(--font-color-dark-bg);
+  font-size: 28px;
+  padding: 5px 10px;
+  border-bottom: 1px solid #fff;
+  margin: 0;
+}
+
+section {
+  display: flex;
+}
+
+section nav {
+  padding: 10px 30px 10px 0;
+  background-color: var(--color-primary);
+  color: var(--font-color-dark-bg);
+  flex: 0 0 200px;
+  border-bottom: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+section:last-child nav {
+  border-bottom: none;
+}
+
+section>div {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+section div.flex-column {
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+section div input {
+  max-width: 500px;
+}
+
+section div select {
+  margin: 5px 0;
+  max-width: 520px;
+}
+
+section div.radio {
+  display: block;
+  font-size: 20px;
+}
+
+section div * {
+  margin: 5px 10px 5px 0;
+}
+
+section div.radio *:not(:first-child) {
+  margin-left: 10px;
+}
+
+section div.radio input[type="radio"] {
+  margin-right: 0;
+}
+
+section div {
+  display: flex;
+}
+
+.address {
+  display: flex;
+  flex-direction: column;
+}
+
+.address:not(:first-child) {
+  margin-top: 20px;
+}
+
+.add {
+  cursor: pointer;
+  width: 45px;
+}
+
+.flex-group {
+  display: flex;
+  align-items: center
+}
+
+.flex-group input {
+  flex-grow: 1;
+}
+
+input.error,
+select.error,
+textarea.error,
+.error {
+  border: 1px solid var(--color-error);
+}
+
+section div em {
+  color: var(--color-error);
+  font-size: 18px;
+  margin-bottom: 10px;
+  margin-top: -5px;
+  font-style: normal;
+  display: block;
+}
+
+.buttons {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.buttons * {
+  flex: 1 1 auto;
+}
